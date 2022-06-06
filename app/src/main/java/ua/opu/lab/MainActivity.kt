@@ -32,15 +32,21 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
             val batteryInfoChannel =
-                NotificationChannel("1", "Battery state", NotificationManager.IMPORTANCE_LOW)
+                NotificationChannel(
+                    BatteryStateReceiver.CHANNEL_ID,
+                    "Battery state",
+                    NotificationManager.IMPORTANCE_LOW)
             val airplaneModeChannel =
                 NotificationChannel(
-                    "2",
+                    CameraButtonReceiver.CHANNEL_ID,
                     "Camera button clicked",
                     NotificationManager.IMPORTANCE_HIGH
                 )
             val cameraButtonChannel =
-                NotificationChannel("3", "Airplane mode state", NotificationManager.IMPORTANCE_HIGH)
+                NotificationChannel(
+                    AirplaneModeReceiver.CHANNEL_ID,
+                    "Airplane mode state",
+                    NotificationManager.IMPORTANCE_HIGH)
 
             val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
 
